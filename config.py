@@ -10,12 +10,12 @@ load_dotenv()
 API_ID = int("20412153")
 API_HASH = "a249ebabf3a6d09c217a82bcc635730c"
 
-BOT_TOKEN = str("")
+BOT_TOKEN = str("5531925252:AAGht0gu38LpHZRbjdfl2J9DojpP5sPbtCw")
 
 MONGO_DB_URI = str("mongodb+srv://ownerayush:iamayush@estella.13xvj8e.mongodb.net/?retryWrites=true&w=majority")
 
-STRING1 = str("")
-STRING2 = str("")
+STRING1 = str("BQBaabpCeDutHCaRlOCK3MexMrHjOvSZ0AoomKQE1YBvKBiacR2Y7x41pSL0FuPIHXJMz_EnTbBNkQ3-gwQuHb770UQpjiBv_En5RrLjXo4bLfBiFu6tVQMM7VB4vdxWKz6IOPmsD4tpq2SDuUmIcyTmKCLwTt3gx_s58vcq88gQt21zpiPa0hc3IzsobhmioBXvNxHY-X2bsUCfvjAVGPbJflvMrQl3L8C-uk_EwaJpGFllPGgo0Pw1NGodiy4_56Dp913_3mLREj7Hp8oWhmGQ1CuSVEkhxIQdSquycW8dex9qiluca0O8g8rOHs9auQblSLBc2IYhhHf3IDKhsr32AAAAAV_5ABwA")
+STRING2 = str("AgC_ZnECiMSXuWgbHPD62xFOU0_zXoo19lc7kpBIMxOnlioJVRmOYomwrMUu55nTRSPDYTiTHp6kKusk24gv70KTRdRo0J_VAYW01q5Tc7wCOmzrVsxg2ZW3fYO2DPe8Qyz8zKPE2XdXBoUG9Cer3b0_rY_D-vyvN_Zy7dT_4Y5m1ZlIDTL6Q6byfl-L1SwHOp2XRRA7rzpB73BFQg1DJlspnWFBDIuUGho2KvORLTsBLbJ_UqGK_m628NVdQDEsyaqJnzcN31V0vJ2OlKkacXY7LOy_EMTklpZeFin1yA-5zO0_b5LiWN0MOl9jLt7njDrZnt-AIeOr1rXwSx5hkI3PAAAAATVLODsA")
 STRING3 = getenv("STRING_SESSION3", None)
 STRING4 = getenv("STRING_SESSION4", None)
 STRING5 = getenv("STRING_SESSION5", None)
