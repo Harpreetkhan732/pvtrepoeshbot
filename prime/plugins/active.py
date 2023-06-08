@@ -5,7 +5,7 @@ import pyrogram
 from pyrogram import filters
 from pyrogram.types import Message
 
-from prime.config import OWNER_ID
+from config import OWNER_ID
 from strings import get_command
 from prime import app
 from prime.misc import SUDOERS
