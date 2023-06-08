@@ -8,7 +8,7 @@ from unidecode import unidecode
 from PIL import (Image, ImageDraw, ImageEnhance, ImageFilter,
                  ImageFont, ImageOps)
 from youtubesearchpython.__future__ import VideosSearch
-from FallenMusic import app
+from prime import app
 from config import MUSIC_BOT_NAME, YOUTUBE_IMG_URL
 
 
@@ -103,16 +103,16 @@ async def gen_thumb(videoid, user_id):
         background.paste(x, (1060, 550), mask=x)
 
         draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("FallenMusic/assets/font2.ttf", 40)
-        font2 = ImageFont.truetype("FallenMusic/assets/font2.ttf", 30)
-        arial = ImageFont.truetype("FallenMusic/assets/font2.ttf", 35)
-        name_font = ImageFont.truetype("FallenMusic/assets/font.ttf", 30)
+        font = ImageFont.truetype("prime/assets/font2.ttf", 40)
+        font2 = ImageFont.truetype("prime/assets/font2.ttf", 30)
+        arial = ImageFont.truetype("prime/assets/font2.ttf", 35)
+        name_font = ImageFont.truetype("prime/assets/font.ttf", 30)
         para = textwrap.wrap(title, width=32)
         j = 0
 
 
         draw.text(
-            (160, 35), f"FALLEN MUSIC", fill="white", font=name_font
+            (160, 35), f"ESBOT MUSIC", fill="white", font=name_font
         )
 
         draw.text(
@@ -204,14 +204,14 @@ async def gen_qthumb(videoid, user_id):
         background.paste(logo, (90, 100))
 
         draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("FallenMusic/assets/font2.ttf", 30)
-        font2 = ImageFont.truetype("FallenMusicassets/font2.ttf", 30)
-        arial = ImageFont.truetype("FallenMusic/assets/font2.ttf", 30)
-        name_font = ImageFont.truetype("FallenMusic/assets/font.ttf", 30)
+        font = ImageFont.truetype("prime/assets/font2.ttf", 30)
+        font2 = ImageFont.truetype("prime/assets/font2.ttf", 30)
+        arial = ImageFont.truetype("prime/assets/font2.ttf", 30)
+        name_font = ImageFont.truetype("prime/assets/font.ttf", 30)
         para = textwrap.wrap(title, width=32)
         j = 0
         draw.text(
-            (1065, 5), f"FALLEN MUSIC", fill="white", font=name_font
+            (1065, 5), f"ESBOT MUSIC", fill="white", font=name_font
         )
 
         draw.text(
