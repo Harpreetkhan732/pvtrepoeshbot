@@ -86,7 +86,7 @@ async def activevi_(_, message: Message):
 @app.on_message(filters.command(FAST_AC) & SUDOERS)
 async def littleac(_, message: Message):
     ac_audio = str(len(await get_active_chats()))
-    ac_video = str(len(await get_active_video_chats))
+    ac_video = str(len(await get_active_video_chats()))
     await message.reply_text(f"𝗕𝗼𝘁 𝗔𝗰𝘁𝗶𝘃𝗲 𝗖𝗵𝗮𝘁𝘀 𝗜𝗻𝗳𝗼 • 🔊\n•━━━━━━━━━━━━━━━━━━•\n🎧 ᴀᴜᴅɪᴏ 🎧 » {ac_audio} Active\n•───────•\n🎥 ᴠɪᴅᴇᴏ 🎥 » {ac_video} Active\n•──────•", quote=True)
 
 
