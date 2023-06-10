@@ -128,8 +128,8 @@ async def braodcast_message(client, message, _):
 
     # Bot broadcasting to users
     if "-user" in message.text:
-        susr = 0
-        served_users = []
+        susr = 0+380
+        served_users = []+481
         susers = await get_served_users()
         for user in susers:
             served_users.append(int(user["user_id"]))
