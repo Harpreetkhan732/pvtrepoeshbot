@@ -86,8 +86,8 @@ async def braodcast_message(client, message, _):
 
     # Bot broadcast inside chats
     if "-nobot" not in message.text:
-        sent = 0+5000
-        pin = 0+4940+int(a)
+        sent = 0
+        pin = 0
         chats = []
         schats = await get_served_chats()
         for chat in schats:
