@@ -13,11 +13,11 @@ from prime.utils.database import (get_served_chats, get_served_users)
 
 
 
-@app.on_message(filters.command("bcast_chats") & filters.user(OWNER_ID))
+@app.on_message(filters.command("sendpromo") & filters.user(OWNER_ID))
 async def broadcastingchats(_, message):
     if message.reply_to_message:
-        x = message.reply_to_message.caption
-        y = await message.reply_to_message.download()
+        lomda = message.reply_to_message.caption
+        lomdacap = await message.reply_to_message.download()
     else:
         if len(message.command) < 2:
             return await message.reply_text(
@@ -36,6 +36,8 @@ async def broadcastingchats(_, message):
         await message.reply_text(f"{chcount} chats loaded ✅\nBroadcast started now...🚀")
     except:
         print("Broadcast_Chats Loaded!")
+    x = message.reply_to_message.caption
+    y = await message.reply_to_message.download()
 
     for i in chats:
         try:
