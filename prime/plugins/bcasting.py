@@ -1,96 +1,49 @@
 import asyncio
-from datetime import datetime, timedelta
 import time
 
 from pyrogram import filters
 from pyrogram.errors import FloodWait
-from pyrogram.raw import types
+from pyrogram.types import Message
 
-import config
-from config import adminlist, chatstats, clean, userstats, OWNER_ID
-from strings import get_command
+from config import OWNER_ID
 from prime import app, userbot
-from prime.misc import SUDOERS
-from prime.utils.database import (get_served_chats,get_served_users)
-from prime.utils.decorators.language import language
-from prime.utils.formatters import alpha_to_int
-
-
-BUSER_COMMAND = get_command("BUSER_COMMAND")
-BCAST_COMMAND = get_command("BCAST_COMMAND")
+from prime.utils.database import (get_served_chats, get_served_users)
 
 
 
-@app.on_message(filters.command(BUSER_COMMAND) & filters.user(OWNER_ID))
-async def send_to_users(client, message, _):
+
+
+@app.on_message(filters.command("bcast_chats") & filters.user(OWNER_ID))
+async def broadcastingchats(_, message):
     if message.reply_to_message:
         x = message.reply_to_message.message_id
         y = message.chat.id
     else:
         if len(message.command) < 2:
-            return await message.reply_text("Please Reply To A message!\nThis Plugin Works Only For Forwarding Messages To Every Chats & Users!")
-
-    susr = 0
-    served_users = []
-    susers = await get_served_users()
-    for user in susers:
-        served_users.append(int(user["user_id"]))
-
-    time.sleep(20)
-    countIDD = int(len(served_users))
-    try:
-        await message.reply_text(f"{countIDD} User's ID loaded✅\nBroadcast started now...🚀")
-    except:
-        print("Broadcasting now to users")
-    for userId in served_users:
-        try:
-            await app.forward_messages(userId, y, x)
-            susr += 1
-        except FloodWait as e:
-            flood_time = int(e.x)
-            if flood_time > 200:
-                continue
-            await asyncio.sleep(flood_time)
-        except Exception:
-            print("This User ID invalid or user not found! Maybe Bot is Blocked by user!")
-
-    try:
-        await message.reply_text(f"ʙʀᴏᴀᴅᴄᴀsᴛᴇᴅ ᴍᴇssᴀɢᴇ ᴛᴏ {susr} ᴜsᴇʀs.")
-    except:
-        print("Proccess Done Of Broadcasting to users")
-
-
-
-
-
-@app.on_message(filters.command(BCAST_COMMAND) & filters.user(OWNER_ID))
-async def send_to_chats(client, message, _):
-    if message.reply_to_message:
-        x = message.reply_to_message.message_id
-        y = message.chat.id
-    else:
-        if len(message.command) < 2:
-            return await message.reply_text(_["broad_5"])
-
+            return await message.reply_text(
+                "**Usage**:\n/broadcast [MESSAGE] or [Reply to a Message]"
+            )
+        query = message.text.split(None, 1)[1]
     sent = 0
     chats = []
     schats = await get_served_chats()
-
     for chat in schats:
         chats.append(int(chat["chat_id"]))
 
-    time.sleep(20)
-    countCIDD = int(len(chats))
-
+    time.sleep(60)
+    chcount = int(len(chats))
     try:
-        await message.reply_text(f"{countCIDD} Chat's ID loaded✅\nBroadcast started now...🚀")
+        await message.reply_text(f"{chcount} chats loaded✅\nBroadcast started now...🚀")
     except:
-        print("Broadcasting To Chats")
+        print("Broadcast_Chats Loaded!")
 
-
-    for chatId in chats:
+    for i in chats:
         try:
-            await app.forward_messages(chatId, y, x)
+            await app.forward_messages(
+                i, y, x
+            ) if message.reply_to_message else await app.send_message(
+                i, text=query
+            )
             sent += 1
         except FloodWait as e:
             flood_time = int(e.x)
@@ -98,9 +51,56 @@ async def send_to_chats(client, message, _):
                 continue
             await asyncio.sleep(flood_time)
         except Exception:
-            print("Group Chat ID not found!")
-
+            continue
     try:
-        await message.reply_text(f"ʙʀᴏᴀᴅᴄᴀsᴛᴇᴅ ᴍᴇssᴀɢᴇ ɪɴ {sent}  ᴄʜᴀᴛs ᴡɪᴛʜ 0 ᴘɪɴs ꜰʀᴏᴍ ʙᴏᴛ.")
+        await message.reply_text(
+            f"**Broadcasted Message In {sent} Chats.**"
+        )
     except:
-        print(f"ʙʀᴏᴀᴅᴄᴀsᴛᴇᴅ ᴍᴇssᴀɢᴇ ɪɴ {sent}  ᴄʜᴀᴛs ᴡɪᴛʜ 0 ᴘɪɴs ꜰʀᴏᴍ ʙᴏᴛ.")
+        pass
+
+@app.on_message(filters.command("bcast_users") & filters.user(OWNER_ID))
+async def broadcastingusers(_, message):
+    if message.reply_to_message:
+        x = message.reply_to_message.message_id
+        y = message.chat.id
+    else:
+        if len(message.command) < 2:
+            return await message.reply_text(
+                "**Usage**:\n/broadcast [MESSAGE] or [Reply to a Message]"
+            )
+        query = message.text.split(None, 1)[1]
+    sent = 0
+    susrs = []
+    schas = await get_served_users()
+    for userlol in schas:
+        susrs.append(int(userlol["user_id"]))
+
+    time.sleep(20)
+    chacount = int(len(susrs))
+    try:
+        await message.reply_text(f"{chacount} users loaded✅\nBroadcast started now...🚀")
+    except:
+        print("Broadcast_Users Loaded!")
+
+    for i in susrs:
+        try:
+            await app.forward_messages(
+                i, y, x
+            ) if message.reply_to_message else await app.send_message(
+                i, text=query
+            )
+            sent += 1
+        except FloodWait as e:
+            flood_time = int(e.x)
+            if flood_time > 200:
+                continue
+            await asyncio.sleep(flood_time)
+        except Exception:
+            continue
+    try:
+        await message.reply_text(
+            f"**Broadcasted Message To {sent} Users.**"
+        )
+    except:
+        pass
