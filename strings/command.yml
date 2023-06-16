@@ -1,3 +1,6 @@
+BUSER_COMMAND : ["bcast_users"]
+BCAST_COMMAND : ["bcast_chats"]
+
 AUTOCHAT_COMMAND : ["autochat","addchat"]
 AUTOUSER_COMMAND : ["autouser","adduser"]
 PING_COMMAND : ["ping", "alive"]
