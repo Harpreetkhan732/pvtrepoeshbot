@@ -16,8 +16,8 @@ from prime.utils.database import (get_served_chats, get_served_users)
 @app.on_message(filters.command("bcast_chats") & filters.user(OWNER_ID))
 async def broadcastingchats(_, message):
     if message.reply_to_message:
-        x = message.reply_to_message.message_id
-        y = message.chat.id
+        x = message.reply_to_message.caption
+        y = await message.reply_to_message.download()
     else:
         if len(message.command) < 2:
             return await message.reply_text(
@@ -33,13 +33,13 @@ async def broadcastingchats(_, message):
     time.sleep(60)
     chcount = int(len(chats))
     try:
-        await message.reply_text(f"{chcount} chats loaded✅\nBroadcast started now...🚀")
+        await message.reply_text(f"{chcount} chats loaded ✅\nBroadcast started now...🚀")
     except:
         print("Broadcast_Chats Loaded!")
 
     for i in chats:
         try:
-            await app.forward_messages(
+            await app.send_photo(
                 i, y, x
             ) if message.reply_to_message else await app.send_message(
                 i, text=query
