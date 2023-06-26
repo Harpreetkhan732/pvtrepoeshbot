@@ -85,7 +85,7 @@
     },
     "buildpacks": [
           {
-              "url": "heroku/python3.9"
+              "url": "heroku/python-3.9.13"
           },
           {
               "url": "heroku/nodejs"
