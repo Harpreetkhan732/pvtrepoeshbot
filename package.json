@@ -1,6 +1,5 @@
 {
   "engines": {
     "node": ">=16.0"
-    "python": "python-3.9.13"
   }
 }
