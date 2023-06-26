@@ -1,6 +1,7 @@
+python-3.9.13
 aiofiles
 aiohttp
-asyncio==3.4.3
+asyncio
 dnspython
 ffmpeg-python
 gitpython
