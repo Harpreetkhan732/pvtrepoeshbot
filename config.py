@@ -10,7 +10,7 @@ load_dotenv()
 API_ID = int("16869246")
 API_HASH = "213be484ba10ce43a77a36bb596a03d8"
 
-BOT_TOKEN = str("5531925252:AAG-yFdOdbq-voKzHJ_4U8YCTREHaiZnN7Y")
+BOT_TOKEN = str("5531925252:AAHffHfkaVMQ7rlASp7vQwIxIKZjj1kpbdI")
 
 MONGO_DB_URI = str("mongodb+srv://ownerayush:iamayush@estella.13xvj8e.mongodb.net/?retryWrites=true&w=majority")
 
